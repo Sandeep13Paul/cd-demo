@@ -4,6 +4,8 @@ pipeline {
     environment {
         DOCKERHUB_REPO = "sandeeppaul/my-repo"
         APP_VERSION = "latest"
+        K8S_TOKEN = credentials('k8s-token')
+        K8S_SERVER = "https://34.44.84.197"
     }
 
     stages {
@@ -27,8 +29,13 @@ pipeline {
 
         stage('Deploy to Kubernetes') {
             steps {
-                withCredentials([file(credentialsId: 'kubeconfig', variable: 'KUBECONFIG')]) {
+                script {
                     sh """
+                        kubectl config set-cluster jenkins-cluster --server=$K8S_SERVER --insecure-skip-tls-verify=true
+                        kubectl config set-credentials jenkins --token=$K8S_TOKEN
+                        kubectl config set-context my-context --cluster=jenkins-cluster --user=jenkins
+                        kubectl config use-context my-context
+
                         kubectl apply -f deployment.yaml
                         kubectl apply -f service.yaml
                     """
