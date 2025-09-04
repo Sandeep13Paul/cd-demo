@@ -46,10 +46,10 @@ pipeline {
 
     post {
         success {
-            echo "✅ Deployment & Service applied successfully!"
+            echo "Deployment & Service applied successfully!"
         }
         failure {
-            echo "❌ Deployment failed. Check logs."
+            echo "Deployment failed. Check logs."
         }
     }
 }
