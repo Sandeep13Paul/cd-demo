@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
         - name: my-app-container
-          image: sandeeppaul/my-app:latest
+          image: sandeeppaul/my-repo:latest
           ports:
             - containerPort: 8080
