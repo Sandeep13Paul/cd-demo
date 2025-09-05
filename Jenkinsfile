@@ -1,15 +1,15 @@
 pipeline {
     agent any
 
+    parameters {
+        string(name: 'APP_VERSION', defaultValue: 'latest', description: 'Image version to deploy')
+        string(name: 'GIT_COMMIT', defaultValue: 'unknown', description: 'Git commit hash')
+    }
+
     environment {
         DOCKERHUB_REPO = "sandeeppaul/my-repo"
         K8S_TOKEN = credentials('k8s-token')
         K8S_SERVER = "https://34.71.202.58"
-    }
-
-    parameters {
-        string(name: 'APP_VERSION', defaultValue: 'latest', description: 'Image version to deploy')
-        string(name: 'GIT_COMMIT', defaultValue: 'unknown', description: 'Git commit hash')
     }
 
     stages {
