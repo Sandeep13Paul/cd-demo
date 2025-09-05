@@ -40,6 +40,7 @@ pipeline {
                         kubectl apply -f service.yaml
 
                         kubectl rollout history deployment my-app
+                        kubectl annotate deployment my-app kubernetes.io/change-cause="Deployed via Jenkins build ${BUILD_NUMBER} (commit: ${GIT_COMMIT})" --overwrite
                     """
                 }
             }
