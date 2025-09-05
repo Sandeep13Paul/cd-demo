@@ -5,7 +5,7 @@ pipeline {
         DOCKERHUB_REPO = "sandeeppaul/my-repo"
         APP_VERSION = "latest"
         K8S_TOKEN = credentials('k8s-token')
-        K8S_SERVER = "https://34.44.84.197"
+        K8S_SERVER = "https://34.71.202.58"
     }
 
     stages {
