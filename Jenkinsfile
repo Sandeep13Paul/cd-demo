@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKERHUB_REPO = "sandeeppaul/my-repo"
-        APP_VERSION = "latest"
+        APP_VERSION = "${BUILD_NUMBER}"
         K8S_TOKEN = credentials('k8s-token')
         K8S_SERVER = "https://34.71.202.58"
     }
