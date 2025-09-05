@@ -29,8 +29,8 @@ pipeline {
                         kubectl config set-context my-context --cluster=jenkins-cluster --user=jenkins
                         kubectl config use-context my-context
 
-                        kubectl apply -f deployment.yaml
-                        kubectl apply -f service.yaml
+                        kubectl apply -f deployment.yaml --validate=false
+                        kubectl apply -f service.yaml --validate=false
 
                         kubectl rollout history deployment my-app
                         kubectl set image deployment/my-app my-app-container=$DOCKERHUB_REPO:$APP_VERSION --record
