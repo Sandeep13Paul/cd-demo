@@ -1,4 +1,4 @@
-@Library('my-shared-lib') _
+@Library('ci-cd-library') _
 
 cdPipeline(
     dockerRepo : 'sandeeppaul/my-repo',
