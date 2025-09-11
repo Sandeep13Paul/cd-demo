@@ -1,0 +1,25 @@
+replicaCount: 2
+
+image:
+  repository: yashwanthm998/my-app
+  tag: "1.1.5"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: true
+  className: ""
+  hosts:
+    - host: my-app.example.com
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: my-app
+              port:
+                number: 80
+  tls: []  # configure if TLS is required
