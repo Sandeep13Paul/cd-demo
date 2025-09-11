@@ -1,8 +1,8 @@
 replicaCount: 2
 
 image:
-  repository: yashwanthm998/my-app
-  tag: "1.1.5"
+  repository: sandeeppaul/my-repo
+  tag: "latest"
   pullPolicy: IfNotPresent
 
 service:
