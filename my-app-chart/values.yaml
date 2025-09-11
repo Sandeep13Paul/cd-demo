@@ -13,7 +13,7 @@ ingress:
   enabled: true
   className: ""
   hosts:
-    - host: my-app.example.com
+    - host: my-app.35.198.238.24.nip.io
       paths:
         - path: /
           pathType: Prefix
